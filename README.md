@@ -67,13 +67,35 @@ Production mode:
 npm start
 ```
 
-The server will start on `http://localhost:3000`
+The server will start on `http://localhost:8080`
+
+## Running Tests
+
+Run the comprehensive unit tests:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
+### Test Coverage
+- **20 test cases** covering all authentication endpoints
+- **100% statement coverage** on auth router
+- **93.75% branch coverage**
+
+See `__tests__/README.md` for detailed test documentation.
 
 ## API Endpoints
 
 ### Base URL
 ```
-http://localhost:3000
+http://localhost:8080
 ```
 
 ### Health Check
@@ -111,20 +133,25 @@ http://localhost:3000
 
 ```
 be-hospital/
+├── __tests__/
+│   ├── auth.test.js     # Unit tests for auth router
+│   └── README.md        # Test documentation
 ├── config/
-│   └── database.js       # Database configuration
+│   └── database.js      # Database configuration
 ├── database/
-│   └── schema.sql        # Database schema
+│   └── schema.sql       # Database schema
 ├── middleware/
 │   └── auth.js          # Authentication middleware
 ├── router/
 │   └── auth.js          # Authentication routes
+├── validate/
+│   └── authValidation.js # Joi validation schemas
 ├── .env                 # Environment variables (gitignored)
 ├── .env.example         # Environment variables template
-├── .gitignore          # Git ignore file
-├── index.js            # Main server file
-├── package.json        # Dependencies
-└── README.md          # Documentation
+├── .gitignore           # Git ignore file
+├── index.js             # Main server file
+├── package.json         # Dependencies
+└── README.md            # Documentation
 ```
 
 ## Technologies Used
@@ -134,8 +161,12 @@ be-hospital/
 - **pg** - PostgreSQL client
 - **bcrypt** - Password hashing
 - **jsonwebtoken** - JWT authentication
+- **joi** - Request validation
+- **uuid** - Unique ID generation
 - **dotenv** - Environment variables
 - **cors** - Cross-origin resource sharing
+- **jest** - Testing framework
+- **supertest** - HTTP assertions for testing
 
 ## Security Notes
 

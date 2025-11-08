@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const pool = require("../config/database");
+
 const { registerSchema, loginSchema } = require("../validate/authValidation");
 
 router.post("/register", async (req, res) => {
@@ -36,7 +37,7 @@ router.post("/register", async (req, res) => {
         message: "User already exists",
       });
     }
-    const { v4: uuidv4 } = await import('uuid');
+const { v4: uuidv4 } = require("uuid");
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const id = uuidv4();
